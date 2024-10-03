@@ -1,0 +1,110 @@
+// Importar las variables y mixins si están en un archivo separado
+// @import '../path/to/variables.scss';
+// Importar fuentes
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+// Variables de colores
+$color-primary: #4f46e5;
+$color-secondary: #818cf8;
+$color-background: #f3f4f6;
+$color-text: #1f2937;
+$color-error: #ef4444;
+$color-white: #ffffff;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// Estilos para el componente Unauthorized
+.unauthorized {
+    @include flex-center;
+    min-height: 100vh;
+    padding: 2rem;
+  
+    &__content {
+      text-align: center;
+      background-color: $color-white;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      max-width: 500px;
+      width: 100%;
+      box-sizing: border-box;
+      animation: fadeInDown 0.5s ease-out;
+    }
+  
+    &__image {
+      width: 100%;
+      max-width: 250px;
+      margin: 0 auto 1.5rem;
+    }
+  
+    &__title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: $color-primary;
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+  
+    &__message {
+      font-size: 1rem;
+      color: $color-text;
+      margin-bottom: 1.5rem;
+    }
+  
+    &__button {
+      padding: 0.75rem 1.5rem;
+      background-color: $color-primary;
+      color: $color-white;
+      border: none;
+      border-radius: 0.375rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      letter-spacing: 0.03em;
+      box-sizing: border-box;
+  
+      &:hover:not(:disabled) {
+        background-color: darken($color-primary, 10%);
+      }
+  
+      &:disabled {
+        background-color: #9ca3af;
+        cursor: not-allowed;
+      }
+    }
+  }
+  
+  // Animaciones
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+  
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  // Ajustes responsivos
+  @media (max-width: 480px) {
+    .unauthorized__content {
+      padding: 1.5rem;
+    }
+  
+    .unauthorized__title {
+      font-size: 1.25rem;
+    }
+  
+    .unauthorized__message {
+      font-size: 0.875rem;
+    }
+  }
+  

@@ -1,0 +1,255 @@
+// Importar fuentes
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+// Variables de colores
+$color-primary: #3b82f6; // Azul más vibrante
+$color-secondary: #60a5fa; // Azul claro
+$color-background: #f0f4f8; // Fondo más claro
+$color-text: #1f2937;
+$color-accent: #10b981; // Verde esmeralda para acentos
+$color-white: #ffffff;
+$color-gray: #6b7280;
+$color-light-gray: #f9fafb;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+// Bloque principal: userForm
+.userForm {
+  @include flex-center;
+  min-height: 100vh;
+  padding: 1rem;
+
+  &__card {
+    background-color: $color-white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    max-width: 400px;
+    width: 100%;
+    box-sizing: border-box;
+    animation: fadeInDown 0.5s ease-out;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  &__title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2rem;
+    color: $color-primary;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__input-group {
+    margin-bottom: 1.5rem;
+    width: 100%;
+
+    &-label {
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      color: $color-gray;
+    }
+
+    &-input {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+      background-color: $color-light-gray;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+        box-shadow: 0 0 0 3px rgba($color-primary, 0.15);
+      }
+
+      &:disabled {
+        background-color: #e5e7eb;
+        color: $color-gray;
+      }
+    }
+  }
+
+  &__loading-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: $color-secondary;
+    text-align: center;
+  }
+
+  &__continue-button {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: $color-accent;
+    color: $color-white;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    box-sizing: border-box;
+
+    &:hover:not(:disabled) {
+      background-color: darken($color-accent, 10%);
+    }
+
+    &:disabled {
+      background-color: #9ca3af;
+      cursor: not-allowed;
+    }
+  }
+
+  &__error-message {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: rgb(117, 34, 34);
+    text-align: center;
+  }
+}
+
+// Bloque principal: dashboard
+.dashboard {
+  @include flex-center;
+  min-height: 100vh;
+  padding: 1rem;
+
+  &__card {
+    background-color: $color-white;
+    padding: 2.5rem;
+    border-radius: 0.75rem;
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+    animation: fadeInUp 0.5s ease-out;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
+  }
+
+  &__title {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    color: $color-primary;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+    }
+  }
+
+  &__avatar {
+    margin-right: 2rem;
+
+    @media (max-width: 480px) {
+      margin-right: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    &-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  &__details {
+    flex: 1;
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+      color: $color-text;
+
+      strong {
+        color: $color-gray;
+      }
+    }
+  }
+
+  &__goBack-button {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    background-color: transparent;
+    color: $color-primary;
+    border: 2px solid $color-primary;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+
+    &:hover:not(:disabled) {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+
+    &:disabled {
+      background-color: #e5e7eb;
+      color: $color-gray;
+      border-color: #e5e7eb;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// Animaciones
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Ajustes responsivos
+@media (max-width: 480px) {
+  .userForm__card,
+  .dashboard__card {
+    padding: 1.5rem;
+  }
+
+  .userForm__title,
+  .dashboard__title {
+    font-size: 1.5rem;
+  }
+}
