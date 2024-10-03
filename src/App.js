@@ -11,7 +11,7 @@ const ProtectedForm = userAuth(Form);
 
 function App() {
   return (
-    <div>
+    <div style={{height:"100vh",  overflow: "hidden"}}>
       <Router>
         <Switch>
           <Route exact path="/" component={Login} />
