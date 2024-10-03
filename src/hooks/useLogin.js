@@ -1,7 +1,12 @@
+// React
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+
+// Mensajes de animacion tipo toast
 import { Zoom, toast } from "react-toastify";
 
+
+// Hook personalizado para la logica del login
 export const useLogin = (initialForm, validateForm) => {
   const [attempts, setAttempts] = useState(0);
   const [showPassword, setShowPassword] = useState(false);
@@ -14,6 +19,7 @@ export const useLogin = (initialForm, validateForm) => {
   const MESSAGE_ERROR = "Por favor, verifica tus credenciales.";
   const MESSAGE_SUCCESS = "Acceso correcto";
 
+  // Maneja los intentos erroneos
   const handleAttempsts = () => {
     const newAttempts = attempts + 1;
     setAttempts(newAttempts);
@@ -22,6 +28,7 @@ export const useLogin = (initialForm, validateForm) => {
     if(attempts>=3) console.log("contraseña incorrecta")
   };
 
+  // Maneja el cambio de los datos del formulario de login
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({
@@ -30,6 +37,7 @@ export const useLogin = (initialForm, validateForm) => {
     });
   };
 
+  // Maneja el submit al momento de intentar hacer un logeo, junto con mensajes de error y seteo de token simulado
   const handleSubmit = async (e) => {
     e.preventDefault();
 

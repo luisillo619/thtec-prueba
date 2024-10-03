@@ -1,8 +1,11 @@
+// React
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import styles from './style.module.scss'; // Importamos los estilos
 
+// Estilos
+import styles from './style.module.scss'; 
 
+// Componente que renderiza una pagina inexistene en la aplicacion (404)
 export const Error404 = () => {
   const history = useHistory();
 

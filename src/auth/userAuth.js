@@ -1,22 +1,22 @@
 
+// React
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 
+// Componente para la validacion de autenticacion y autoriazion para el rol "user" (Componente de orden superior)
 export const userAuth = (WrappedComponent) => {
+
   return function WithAuth(props) {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [userData, setUserData] = useState(null);
     const [loading, setLoading] = useState(true);
 
+    // Simulacion de peticion y respesta al backend
     useEffect(() => {
-      // Obtener el token del localStorage
       const token = localStorage.getItem("token");
-
       if (token) {
-        // Simular una petición al backend con el token
         const fetchUserData = async () => {
           try {
-            // Simular un retraso en la petición
             await new Promise((resolve) => setTimeout(resolve, 50));
             const response = {
               status: 200,
@@ -34,7 +34,6 @@ export const userAuth = (WrappedComponent) => {
               setIsAuthenticated(false);
             }
           } catch (error) {
-            //console.error('Error al obtener los datos del usuario:', error);
             setIsAuthenticated(false);
           } finally {
             setLoading(false);
@@ -43,7 +42,6 @@ export const userAuth = (WrappedComponent) => {
 
         fetchUserData();
       } else {
-        // Si no hay token, el usuario no está autenticado
         setIsAuthenticated(false);
         setLoading(false);
       }
@@ -53,10 +51,12 @@ export const userAuth = (WrappedComponent) => {
       return <div>Cargando...</div>;
     }
 
+    // Si no fue exitoso redireccion a inautorizado
     if (!isAuthenticated) {
       return <Redirect to="/unauthorized" />;
     }
 
+    // Exitoso continuar con el renderizado del componente
     return <WrappedComponent {...props} userData={userData} />;
   };
 };

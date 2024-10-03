@@ -1,7 +1,11 @@
+// React 
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+
+// Estilos
 import styles from './styles.module.scss';
 
+// Componente barra de navegacion para el deslogueo
 export const Navbar = () => {
   const history = useHistory();
 

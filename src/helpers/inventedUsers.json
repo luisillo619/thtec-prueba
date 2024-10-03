@@ -1,0 +1,162 @@
+[
+  {
+    "id": "1",
+    "name": "Juan",
+    "lastName": "Pérez",
+    "middleName": "García",
+    "email": "juan.perez@example.com",
+    "phone": "+52 123 456 7801"
+  },
+  {
+    "id": "2",
+    "name": "María",
+    "lastName": "Gómez",
+    "middleName": "López",
+    "email": "maria.gomez@example.com",
+    "phone": "+52 123 456 7802"
+  },
+  {
+    "id": "3",
+    "name": "Carlos",
+    "lastName": "Hernández",
+    "middleName": "Martínez",
+    "email": "carlos.hernandez@example.com",
+    "phone": "+52 123 456 7803"
+  },
+  {
+    "id": "4",
+    "name": "Ana",
+    "lastName": "Rodríguez",
+    "middleName": "Sánchez",
+    "email": "ana.rodriguez@example.com",
+    "phone": "+52 123 456 7804"
+  },
+  {
+    "id": "5",
+    "name": "Luis",
+    "lastName": "Martín",
+    "middleName": "Fernández",
+    "email": "luis.martin@example.com",
+    "phone": "+52 123 456 7805"
+  },
+  {
+    "id": "6",
+    "name": "Laura",
+    "lastName": "Jiménez",
+    "middleName": "González",
+    "email": "laura.jimenez@example.com",
+    "phone": "+52 123 456 7806"
+  },
+  {
+    "id": "7",
+    "name": "Diego",
+    "lastName": "Ruiz",
+    "middleName": "Torres",
+    "email": "diego.ruiz@example.com",
+    "phone": "+52 123 456 7807"
+  },
+  {
+    "id": "8",
+    "name": "Elena",
+    "lastName": "Díaz",
+    "middleName": "Ramírez",
+    "email": "elena.diaz@example.com",
+    "phone": "+52 123 456 7808"
+  },
+  {
+    "id": "9",
+    "name": "Miguel",
+    "lastName": "Vázquez",
+    "middleName": "Alonso",
+    "email": "miguel.vazquez@example.com",
+    "phone": "+52 123 456 7809"
+  },
+  {
+    "id": "10",
+    "name": "Carmen",
+    "lastName": "Castro",
+    "middleName": "Gil",
+    "email": "carmen.castro@example.com",
+    "phone": "+52 123 456 7810"
+  },
+  {
+    "id": "11",
+    "name": "Javier",
+    "lastName": "Serrano",
+    "middleName": "Cruz",
+    "email": "javier.serrano@example.com",
+    "phone": "+52 123 456 7811"
+  },
+  {
+    "id": "12",
+    "name": "Isabel",
+    "lastName": "Molina",
+    "middleName": "Morales",
+    "email": "isabel.molina@example.com",
+    "phone": "+52 123 456 7812"
+  },
+  {
+    "id": "13",
+    "name": "Fernando",
+    "lastName": "Ortega",
+    "middleName": "Nuñez",
+    "email": "fernando.ortega@example.com",
+    "phone": "+52 123 456 7813"
+  },
+  {
+    "id": "14",
+    "name": "Patricia",
+    "lastName": "Delgado",
+    "middleName": "Romero",
+    "email": "patricia.delgado@example.com",
+    "phone": "+52 123 456 7814"
+  },
+  {
+    "id": "15",
+    "name": "Sergio",
+    "lastName": "Santos",
+    "middleName": "Iglesias",
+    "email": "sergio.santos@example.com",
+    "phone": "+52 123 456 7815"
+  },
+  {
+    "id": "16",
+    "name": "Lucía",
+    "lastName": "Medina",
+    "middleName": "Marín",
+    "email": "lucia.medina@example.com",
+    "phone": "+52 123 456 7816"
+  },
+  {
+    "id": "17",
+    "name": "Adrián",
+    "lastName": "Rubio",
+    "middleName": "Santiago",
+    "email": "adrian.rubio@example.com",
+    "phone": "+52 123 456 7817"
+  },
+  {
+    "id": "18",
+    "name": "Beatriz",
+    "lastName": "Fuentes",
+    "middleName": "Vega",
+    "email": "beatriz.fuentes@example.com",
+    "phone": "+52 123 456 7818"
+  },
+  {
+    "id": "19",
+    "name": "Alberto",
+    "lastName": "Carrasco",
+    "middleName": "Herrera",
+    "email": "alberto.carrasco@example.com",
+    "phone": "+52 123 456 7819"
+  },
+  {
+    "id": "20",
+    "name": "Sara",
+    "lastName": "Aguilar",
+    "middleName": "Flores",
+    "email": "sara.aguilar@example.com",
+    "phone": "+52 123 456 7820"
+  }
+]

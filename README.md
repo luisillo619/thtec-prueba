@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Prueba Técnica - THTec
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descripción
 
-## Available Scripts
+Esta aplicación fue desarrollada como parte de una prueba técnica para THTec. La aplicación está construida en React y utiliza Node.js como entorno de ejecución. A continuación se detallan las características implementadas y las tecnologías utilizadas.
 
-In the project directory, you can run:
+## Tecnologías
 
-### `npm start`
+- **Node.js**: Versión `16.20.2`
+- **React**: Versión `16.12.0`
+- **Sass**: Utilizado para gestionar los estilos de la aplicación.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Funcionalidades
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+1. **Enrutamiento**:
+   - Utilización de React Router DOM para gestionar las rutas de la aplicación.
+   - Protección de rutas mediante un patrón de orden superior (HOC) que verifica la autenticación con un token simulado en el `localStorage`.
+   - Redirección a una página de login cuando se intenta acceder a una ruta protegida sin autenticación.
 
-### `npm test`
+2. **Autenticación**:
+   - Login mediante usuario y contraseña.
+   - Después de 3 intentos fallidos de login, el botón de acceso se bloquea temporalmente.
+   - Gestión de notificaciones y mensajes de error usando `React Toastify`.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+3. **Componentes y Vistas**:
+   - **Login**: Página de inicio de sesión con validaciones y mensajes de error.
+   - **Dashboard de Usuario**: Al iniciar sesión, se muestra un panel de usuario con los datos obtenidos por un ID simulado.
+   - **Formulario de Búsqueda**: Formulario que recibe un `idUser` y retorna los datos del usuario simulado.
+   - **404 Error Page**: Página de error para rutas no encontradas.
+   - **Autorización de Rutas**: Página para manejar accesos no autorizados, mostrando un mensaje indicando que es necesario iniciar sesión.
 
-### `npm run build`
+4. **Navegación**:
+   - Barra de navegación que permite desloguearse y redirige a la página de login.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. **Manejo de Hooks**:
+   - Utilización de hooks personalizados para la gestión del estado en el login y en el formulario de usuario.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+6. **Estructura del Código**:
+   - Uso de archivos de barril (`index.js`) para mejorar la legibilidad y organización de las importaciones.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instalación
 
-### `npm run eject`
+1. Clonar el repositorio:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   git clone https://github.com/luisillo619/thtec-prueba
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+2. Instalar dependencias:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Iniciar el servidor:
 
-## Learn More
+   npm run start
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Requisitos Previos
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Node.js versión `16.20.2` o superior.
+- NPM instalado.

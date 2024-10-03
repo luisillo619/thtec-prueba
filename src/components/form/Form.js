@@ -1,136 +1,49 @@
-import React, { useEffect, useState } from "react";
-import styles from "./styles.module.scss";
-import { UserDashboard } from "../user";
+// React
+import React from "react";
+
+// Componentes
 import { Navbar } from "../navBar/NavBar";
+import { UserDashboard } from "../user/userDashboard/UserDashboard";
 
+// Hook
+import { useForm } from "../../hooks/useForm";
+
+// Estilos
+import styles from "./styles.module.scss";
+
+// Funcion para la validacion de un userId valido
+const validateForm = (userId) => {
+  const errors = {};
+
+  if (userId !== "" && !/^\d+$/.test(userId)) {
+    errors.userId = "El ID de usuario solo puede contener números";
+  }
+
+  return errors;
+};
+
+// Componente formulario para el renderizado de datos dependiendo de un id
 export const Form = () => {
-  // Estados iniciales
-  const [userId, setUserId] = useState("");
-  const [formData, setFormData] = useState({
-    nombre: "",
-    apellidoPaterno: "",
-    apellidoMaterno: "",
-    email: "",
-    telefono: "",
-  });
-
-  const [isLoading, setIsLoading] = useState(false);
-  const [userExists, setUserExists] = useState(false);
-  const [userNotFound, setUserNotFound] = useState(false);
-  const [showDashboard, setShowDashboard] = useState(false);
-
-  useEffect(() => {
-    console.log("useEffect ejecutado con userId:", userId);
-
-    if (userId.trim() !== "") {
-      setIsLoading(true);
-
-      // Simular llamada a la API con setTimeout
-      const timeoutId = setTimeout(() => {
-        // Datos simulados basados en el ID de usuario
-        let userData = null;
-        let userFound = false;
-
-        if (userId === "1") {
-          userData = {
-            nombre: "Juan",
-            apellidoPaterno: "Pérez",
-            apellidoMaterno: "López",
-            email: "juan.perez@example.com",
-            telefono: "+52 123 456 7890",
-          };
-          userFound = true;
-        } else if (userId === "2") {
-          userData = {
-            nombre: "María",
-            apellidoPaterno: "García",
-            apellidoMaterno: "Hernández",
-            email: "maria.garcia@example.com",
-            telefono: "+52 987 654 3210",
-          };
-          userFound = true;
-        }
-
-        if (userFound) {
-          setFormData(userData);
-          setUserExists(true);
-          setUserNotFound(false);
-        } else {
-          setFormData({
-            nombre: "",
-            apellidoPaterno: "",
-            apellidoMaterno: "",
-            email: "",
-            telefono: "",
-          });
-          setUserExists(false);
-          setUserNotFound(true);
-        }
-
-        setIsLoading(false);
-      }, 1000);
-
-      // Limpiar el timeout si el componente se desmonta o el userId cambia
-      return () => clearTimeout(timeoutId);
-    } else {
-      // Si el userId está vacío, limpiar los otros campos y estados
-
-      if (
-        userExists ||
-        userNotFound ||
-        isLoading ||
-        Object.values(formData).some((value) => value !== "")
-      ) {
-        setFormData({
-          nombre: "",
-          apellidoPaterno: "",
-          apellidoMaterno: "",
-          email: "",
-          telefono: "",
-        });
-        setUserExists(false);
-        setUserNotFound(false);
-        setIsLoading(false);
-      }
-    }
-  }, [userId]);
-
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    if (name === "userId") {
-      setUserId(value);
-    } else {
-      setFormData((prevForm) => ({ ...prevForm, [name]: value }));
-    }
-  };
-
-  const handleContinue = () => {
-    // Mostrar el dashboard
-    setShowDashboard(true);
-  };
-
-  const handleLogout = () => {
-    // Regresar al formulario inicial y limpiar los campos
-    setShowDashboard(false);
-    setUserId("");
-    setFormData({
-      nombre: "",
-      apellidoPaterno: "",
-      apellidoMaterno: "",
-      email: "",
-      telefono: "",
-    });
-    setUserExists(false);
-    setUserNotFound(false);
-    setIsLoading(false);
-  };
+  // Hook personalizadoo para la logica del formulario
+  const {
+    userId,
+    formData,
+    isLoading,
+    userExists,
+    userNotFound,
+    showDashboard,
+    handleChange,
+    handleContinue,
+    handleGoBack,
+    error,
+  } = useForm(validateForm);
 
   if (showDashboard) {
     return (
       <UserDashboard
         user={formData}
         userId={userId}
-        handleLogout={handleLogout}
+        handleGoBack={handleGoBack}
       />
     );
   }
@@ -161,48 +74,48 @@ export const Form = () => {
             </div>
             <div className={styles["userForm__input-group"]}>
               <label
-                htmlFor="nombre"
+                htmlFor="name"
                 className={styles["userForm__input-group-label"]}
               >
                 Nombre
               </label>
               <input
-                id="nombre"
-                name="nombre"
+                id="name"
+                name="name"
                 type="text"
-                value={formData.nombre}
+                value={formData.name}
                 disabled
                 className={styles["userForm__input-group-input"]}
               />
             </div>
             <div className={styles["userForm__input-group"]}>
               <label
-                htmlFor="apellidoPaterno"
+                htmlFor="lastName"
                 className={styles["userForm__input-group-label"]}
               >
                 Apellido Paterno
               </label>
               <input
-                id="apellidoPaterno"
-                name="apellidoPaterno"
+                id="lastName"
+                name="lastName"
                 type="text"
-                value={formData.apellidoPaterno}
+                value={formData.lastName}
                 disabled
                 className={styles["userForm__input-group-input"]}
               />
             </div>
             <div className={styles["userForm__input-group"]}>
               <label
-                htmlFor="apellidoMaterno"
+                htmlFor="middleName"
                 className={styles["userForm__input-group-label"]}
               >
                 Apellido Materno
               </label>
               <input
-                id="apellidoMaterno"
-                name="apellidoMaterno"
+                id="middleName"
+                name="middleName"
                 type="text"
-                value={formData.apellidoMaterno}
+                value={formData.middleName}
                 disabled
                 className={styles["userForm__input-group-input"]}
               />
@@ -221,9 +134,9 @@ export const Form = () => {
                 Continuar
               </button>
             )}
-            {!isLoading && userNotFound && (
+            {((!isLoading && userNotFound) || error) && (
               <p className={styles["userForm__error-message"]}>
-                El usuario no existe
+                {error || `El usuario con id N.${userId} no existe`}
               </p>
             )}
           </form>
