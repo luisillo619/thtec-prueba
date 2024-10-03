@@ -22,6 +22,7 @@ export const useForm = (validateForm) => {
   const [showDashboard, setShowDashboard] = useState(false);
 
   // Effecto que setea los valores dependiendo del id de usuario y genera errores
+  // eslint-disable-next-line
   useEffect(() => {
     const formErrors = validateForm(userId);
     const errors = Object.values(formErrors);
@@ -73,7 +74,7 @@ export const useForm = (validateForm) => {
         setIsLoading(false);
       }
     }
-  }, [userId, formData, isLoading, userExists, userNotFound, validateForm]);
+  }, [userId]);
 
   // Seteo del userId
   const handleChange = (e) => {
