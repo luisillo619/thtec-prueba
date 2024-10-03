@@ -1,9 +1,13 @@
+// React
 import React from 'react';
+
+// Estilos
 import styles from './styles.module.scss';
 
 const defaultAvatarUrl = 'https://www.gravatar.com/avatar?d=mp&s=150';
 
-export const UserDashboard = ({ user, userId, handleLogout }) => {
+// Componente dashboard que muestra la informacion del usuario buscado Por id
+export const UserDashboard = ({ user, userId, handleGoBack }) => {
   return (
     <div className={styles.dashboard}>
       <div className={styles['dashboard__card']}>
@@ -18,22 +22,25 @@ export const UserDashboard = ({ user, userId, handleLogout }) => {
           </div>
           <div className={styles['dashboard__details']}>
             <p>
-              <strong>ID Usuario:</strong> {userId}
+              <strong>Nombre:</strong> {user.name}
             </p>
             <p>
-              <strong>Nombre:</strong> {user.nombre}
+              <strong>Apellido Paterno:</strong> {user.lastName}
             </p>
             <p>
-              <strong>Apellido Paterno:</strong> {user.apellidoPaterno}
+              <strong>Apellido Materno:</strong> {user.middleName}
             </p>
             <p>
-              <strong>Apellido Materno:</strong> {user.apellidoMaterno}
+              <strong>Correo Electronico:</strong> {user.email}
+            </p>
+            <p>
+              <strong>Telefono:</strong> {user.phone}
             </p>
           </div>
         </div>
         <button
           className={styles['dashboard__goBack-button']}
-          onClick={handleLogout}
+          onClick={handleGoBack}
         >
           Regresar
         </button>

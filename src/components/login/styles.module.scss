@@ -1,7 +1,7 @@
-// Importar fuentes
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
-// Variables de colores
+
 $color-primary: #4f46e5;
 $color-secondary: #818cf8;
 $color-background: #f3f4f6;
@@ -9,14 +9,12 @@ $color-text: #1f2937;
 $color-error: #ef4444;
 $color-white: #ffffff;
 
-// Mixins
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-// Animaciones
 
 @keyframes shake {
   0%, 100% {
@@ -39,8 +37,6 @@ $color-white: #ffffff;
   }
 }
 
-
-// Bloque principal: login
 .login {
   @include flex-center;
   height: 100%;
@@ -218,7 +214,6 @@ $color-white: #ffffff;
   }
 }
 
-// Ajustes responsivos
 @media (max-width: 480px) {
   .login__card,
   .login__welcome-card {
