@@ -22,10 +22,12 @@ $color-white: #ffffff;
 // Estilos para el componente Error404
 .error404 {
   @include flex-center;
-  min-height: 100vh;
-  padding: 2rem;
+  height: 100%;
+
+
 
   &__content {
+    
     text-align: center;
     background-color: $color-white;
     padding: 2rem;
