@@ -18,9 +18,8 @@ $color-white: #ffffff;
 
 // Bloque principal: userForm
 .userForm {
-  @include flex-center;
-  min-height: 100vh;
-  padding: 1rem;
+    @include flex-center;
+    height: 100%;
 
   &__card {
     background-color: $color-white;
